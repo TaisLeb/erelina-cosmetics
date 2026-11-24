@@ -34,11 +34,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="footer__wordmark" data-reveal><Logo /></div>
-        <div className="footer__bar" data-reveal>
-          <span>© 2026 Erelina Cosmetics</span>
-          <span>Made with care · Tahoe, California</span>
-          <a href="#top" data-cursor="hover">Back to top ↑</a>
+        <div data-reveal>
+          <div className="footer__wordmark"><Logo /></div>
+          <div className="footer__bar">
+            <span>© 2026 Erelina Cosmetics</span>
+            <span>Made with care · Tahoe, California</span>
+            <a href="#top" data-cursor="hover">Back to top ↑</a>
+          </div>
         </div>
       </div>
     </footer>
