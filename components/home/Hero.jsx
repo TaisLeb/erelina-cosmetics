@@ -11,6 +11,21 @@ export default function Hero() {
   const root = useRef(null);
 
   useEffect(() => {
+    const video = root.current?.querySelector(".hero__img");
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePlayback = () => {
+      if (motion.matches) video.pause();
+      else video.play().catch(() => {});
+    };
+    updatePlayback();
+    motion.addEventListener("change", updatePlayback);
+    return () => {
+      motion.removeEventListener("change", updatePlayback);
+      video.pause();
+    };
+  }, []);
+
+  useEffect(() => {
     const r = root.current;
     if (!r) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -86,11 +101,14 @@ export default function Hero() {
   return (
     <section className="hero" ref={root} id="top">
       <div className="hero__media">
-        <img
+        <video
           className="hero__img"
-          src="/assets/hero-face.jpg"
-          alt="Close portrait of a model with luminous, freshly nourished skin"
-          fetchPriority="high"
+          src="/videos/erelina-hero-trimmed.mp4"
+          poster="/assets/hero-video-poster.jpg"
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
         />
         <div className="hero__veil" />
       </div>

@@ -6,26 +6,29 @@ const CARDS = [
   {
     key: "cleanse",
     label: "Cleanse",
-    img: "/assets/hero-face.jpg",
-    alt: "Model with fresh, clean skin",
+    video: "/videos/cleanse.mp4",
+    alt: "Model cleansing her face behind wet glass",
     pos: "50% 30%",
     badge: "badge--sage",
+    parallax: -9,
   },
   {
     key: "nourish",
     label: "Nourish",
-    img: "/assets/tile-nourish.jpg",
-    alt: "Dewy nourished skin under soft light",
+    video: "/videos/nourish.mp4",
+    alt: "Model applying nourishing lotion to her face",
     pos: "50% 30%",
-    baked: true, // label is part of the image
+    badge: "badge--peach",
+    parallax: -15,
   },
   {
     key: "brighten",
     label: "Brighten",
-    img: "/assets/serum-open.jpg",
-    alt: "Brightening serum applied to the skin",
+    video: "/videos/brighten.mp4",
+    alt: "Model pressing brightening serum into her skin",
     pos: "50% 40%",
     badge: "badge--cream",
+    parallax: -6,
   },
 ];
 
@@ -42,19 +45,28 @@ export default function Ritual() {
           </h2>
         </div>
 
-        <div className="ritual__grid">
+        <div className="ritual__grid" data-parallax-scope>
           {CARDS.map((c, i) => (
             <article
               className={`ritual__card ${i === 1 ? "is-tall" : ""}`}
               key={c.key}
               data-cursor="hover"
+              data-parallax={c.parallax}
             >
               <div className="ritual__media">
-                <img data-reveal="img" src={c.img} alt={c.alt} style={{ objectPosition: c.pos }} />
+                <video
+                  data-reveal="img"
+                  src={c.video}
+                  aria-label={c.alt}
+                  style={{ objectPosition: c.pos }}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                />
               </div>
-              {!c.baked && (
-                <span className={`ritual__badge ${c.badge} script`}>{c.label}</span>
-              )}
+              <span className={`ritual__badge ${c.badge} script`}>{c.label}</span>
             </article>
           ))}
         </div>

@@ -8,11 +8,11 @@ import { useReveal } from "../useReveal";
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
 const ICONS = [
-  { src: "/assets/icon-fig.png", name: "Fig", x: "10%", y: "52%", size: 130, p: -16 },
-  { src: "/assets/icon-honey.png", name: "Honey", x: "30%", y: "26%", size: 120, p: -28 },
-  { src: "/assets/icon-almond.png", name: "Almond", x: "50%", y: "60%", size: 120, p: -12 },
-  { src: "/assets/icon-vanilla.png", name: "Vanilla", x: "70%", y: "28%", size: 140, p: -24 },
-  { src: "/assets/icon-orange.png", name: "Orange", x: "88%", y: "56%", size: 120, p: -18 },
+  { src: "/assets/icon-fig.png", name: "Fig", x: "10%", y: "52%", size: 190, p: -85 },
+  { src: "/assets/icon-honey.png", name: "Honey", x: "30%", y: "26%", size: 180, p: -140 },
+  { src: "/assets/icon-almond.png", name: "Almond", x: "50%", y: "calc(60% + 34px)", size: 170, p: -70 },
+  { src: "/assets/icon-vanilla.png", name: "Vanilla", x: "70%", y: "28%", size: 205, p: -120 },
+  { src: "/assets/icon-orange.png", name: "Orange", x: "88%", y: "56%", size: 180, p: -95 },
 ];
 
 export default function Ingredients() {
